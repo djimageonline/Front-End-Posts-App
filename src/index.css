@@ -1,0 +1,27 @@
+body {
+  background-color: rgb(222, 242, 255);
+  color: rgb(24, 12, 57);
+}
+
+#posts-index img {
+  width: 300px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+textarea {
+  display: flex;
+  min-height: 100px;
+  margin: auto;
+  margin-top: 10px;
+}
+
+img {
+  border-radius: 50%;
+}
+
+/* img:hover {
+  transform: scale(1.5); 
+} */
