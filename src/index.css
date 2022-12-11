@@ -19,7 +19,8 @@ textarea {
 }
 
 img {
-  border-radius: 50%;
+  border-radius: 10px;
+  height: 250px;
 }
 
 /* img:hover {
