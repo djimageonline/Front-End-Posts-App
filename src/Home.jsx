@@ -6,6 +6,7 @@ import { Modal } from "./Modal";
 import { BlogsShow } from "./BlogsShow";
 import { Signup } from "./Signup";
 import { Login } from "./Login";
+import { LogoutLink } from "./LogoutLink";
 
 export function Home() {
   const [posts, setPosts] = useState([]);
@@ -33,6 +34,7 @@ export function Home() {
   return (
     <div>
       <Login />
+      <LogoutLink />
       <Signup />
       <PostsNew />
       <PostsIndex posts={posts} onSelectBlog={handleShowBlogs} />
