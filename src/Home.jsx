@@ -5,6 +5,7 @@ import { PostsIndex } from "./PostsIndex";
 import { Modal } from "./Modal";
 import { BlogsShow } from "./BlogsShow";
 import { Signup } from "./Signup";
+import { Login } from "./Login";
 
 export function Home() {
   const [posts, setPosts] = useState([]);
@@ -31,6 +32,7 @@ export function Home() {
 
   return (
     <div>
+      <Login />
       <Signup />
       <PostsNew />
       <PostsIndex posts={posts} onSelectBlog={handleShowBlogs} />
