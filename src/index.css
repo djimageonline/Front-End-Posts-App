@@ -1,6 +1,9 @@
+
+@import url();
+
 body {
-  background-color: rgb(222, 242, 255);
-  color: rgb(24, 12, 57);
+  background-color: rgb(222, 242, 255) !important;
+  color: rgb(24, 12, 57) !important;
 }
 
 #posts-index img {
@@ -12,15 +15,15 @@ html {
 }
 
 textarea {
-  display: flex;
-  min-height: 100px;
-  margin: auto;
-  margin-top: 10px;
+  display: flex !important;
+  min-height: 100px !important;
+  margin: auto !important; 
+  margin-top: 10px !important;
 }
 
 img {
-  border-radius: 10px;
-  height: 250px;
+  border-radius: 10px !important;
+  height: 250px !important;
 }
 
 /* img:hover {

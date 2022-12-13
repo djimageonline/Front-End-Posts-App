@@ -4,6 +4,7 @@ import { PostsNew } from "./PostsNew";
 import { PostsIndex } from "./PostsIndex";
 import { Modal } from "./Modal";
 import { BlogsShow } from "./BlogsShow";
+import { Signup } from "./Signup";
 
 export function Home() {
   const [posts, setPosts] = useState([]);
@@ -30,6 +31,7 @@ export function Home() {
 
   return (
     <div>
+      <Signup />
       <PostsNew />
       <PostsIndex posts={posts} onSelectBlog={handleShowBlogs} />
       {/* <button onClick={handleIndexPosts}> Load Posts</button> */}
