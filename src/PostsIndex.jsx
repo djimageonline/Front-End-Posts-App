@@ -1,3 +1,5 @@
+import "./PostsIndex.css";
+
 export function PostsIndex(props) {
   console.log(props.onSelectBlog);
   return (

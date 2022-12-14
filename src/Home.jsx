@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { PostsNew } from "./PostsNew";
 import { PostsIndex } from "./PostsIndex";
 import { Modal } from "./Modal";
-import { BlogsShow } from "./BlogsShow";
+import { PostsShow } from "./PostsShow";
 import { Signup } from "./Signup";
 import { Login } from "./Login";
 import { LogoutLink } from "./Logout";
@@ -30,13 +30,36 @@ export function Home() {
   };
 
   const handleCreatePost = (params) => {
-    axios.post("http://localhost:3000/posts.json", params).then((response) => {
-      setPosts([...posts, response.data]);
-    });
-    //   .catch((errors) => {
-    //     console.log(error.response.data.errors);
-    //     setErrors(error.response.data.errors);
-    //   });
+    axios
+      .post("http://localhost:3000/posts.json", params)
+      .then((response) => {
+        setPosts([...posts, response.data]);
+      })
+      .catch((error) => {
+        console.log(error.response.data.errors);
+        // setErrors(error.response.data.errors);
+      });
+  };
+
+  const handleUpdatePost = (id, params) => {
+    axios
+      .patch("http://localhost:3000/posts/" + id + ".json", params)
+      .then((response) => {
+        console.log(response.data);
+        setIsBlogsShowModalVisible(false);
+        setPosts(
+          posts.map((post) => {
+            if (post.id === id) {
+              return response.data;
+            } else {
+              return post;
+            }
+          })
+        );
+      })
+      .catch((error) => {
+        console.log(error.response.data.errors);
+      });
   };
 
   useEffect(handleIndexPosts, []);
@@ -50,7 +73,7 @@ export function Home() {
       <PostsIndex posts={posts} onSelectBlog={handleShowBlogs} />
       {/* <button onClick={handleIndexPosts}> Load Posts</button> */}
       <Modal show={isBlogsShowModalVisible} onClose={handleHideBlogs}>
-        <BlogsShow post={currentBlog} />
+        <PostsShow post={currentBlog} onUpdatePost={handleUpdatePost} />
       </Modal>
     </div>
   );
