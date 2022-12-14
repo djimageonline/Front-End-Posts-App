@@ -1,4 +1,4 @@
-import "./Signup.css";
+import "./login.css";
 import axios from "axios";
 import { useState } from "react";
 
@@ -39,12 +39,14 @@ export function Login() {
       </ul>
       <form onSubmit={handleSubmit}>
         <div>
-          Email: <input name="email" type="email" />
+          Email: <input name="email" className="form-control" type="email" />
         </div>
         <div>
-          Password: <input name="password" type="password" />
+          Password: <input name="password" className="form-control" type="password" />
         </div>
-        <button type="submit">Login</button>
+        <button className="mt-3 btn btn-primary" type="submit">
+          Login
+        </button>
       </form>
     </div>
   );

@@ -29,6 +29,16 @@ export function Home() {
     setIsBlogsShowModalVisible(false);
   };
 
+  const handleCreatePost = (params) => {
+    axios.post("http://localhost:3000/posts.json", params).then((response) => {
+      setPosts([...posts, response.data]);
+    });
+    //   .catch((errors) => {
+    //     console.log(error.response.data.errors);
+    //     setErrors(error.response.data.errors);
+    //   });
+  };
+
   useEffect(handleIndexPosts, []);
 
   return (
@@ -36,7 +46,7 @@ export function Home() {
       <Login />
       <LogoutLink />
       <Signup />
-      <PostsNew />
+      <PostsNew onCreatePost={handleCreatePost} />
       <PostsIndex posts={posts} onSelectBlog={handleShowBlogs} />
       {/* <button onClick={handleIndexPosts}> Load Posts</button> */}
       <Modal show={isBlogsShowModalVisible} onClose={handleHideBlogs}>
