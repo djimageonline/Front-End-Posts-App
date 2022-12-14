@@ -1,4 +1,5 @@
 import axios from "axios";
+import "./LogoutLink.css";
 
 export function LogoutLink() {
   const handleClick = (event) => {
@@ -9,7 +10,7 @@ export function LogoutLink() {
   };
 
   return (
-    <button className="mt-3 btn btn-primary">
+    <button className="mt-3 btn btn-primary" id="logout">
       <a href="#" onClick={handleClick}></a>
       Logout
     </button>
