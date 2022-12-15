@@ -62,6 +62,13 @@ export function Home() {
       });
   };
 
+  const handleDestoryPost = (post) => {
+    axios.delete("http://localhost:3000/posts/" + post.id + ".json").then((response) => {
+      setPosts(posts.filter((p) => p.id !== post.id));
+      handleHideBlogs();
+    });
+  };
+
   useEffect(handleIndexPosts, []);
 
   return (
@@ -73,7 +80,7 @@ export function Home() {
       <PostsIndex posts={posts} onSelectBlog={handleShowBlogs} />
       {/* <button onClick={handleIndexPosts}> Load Posts</button> */}
       <Modal show={isBlogsShowModalVisible} onClose={handleHideBlogs}>
-        <PostsShow post={currentBlog} onUpdatePost={handleUpdatePost} />
+        <PostsShow post={currentBlog} onUpdatePost={handleUpdatePost} onDestroyPost={handleDestoryPost} />
       </Modal>
     </div>
   );

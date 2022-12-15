@@ -8,6 +8,10 @@ export function PostsShow(props) {
     event.target.reset();
   };
 
+  const handleClick = () => {
+    props.onDestroyPost(props.post);
+  };
+
   return (
     <div id="posts-show">
       <h2>{props.post.title}</h2>
@@ -43,10 +47,14 @@ export function PostsShow(props) {
             type="type"
           />
         </div>
-        <button className="mt-3 btn btn-primary" type="submit">
+        <button className="mt-3 btn btn-primary" type="submit" typeof="submit">
           Submit Blog
         </button>
       </form>
+
+      <button className="mt-3 btn btn-danger" onClick={handleClick}>
+        Delete Blog
+      </button>
     </div>
   );
 }

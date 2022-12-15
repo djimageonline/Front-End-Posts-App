@@ -26,6 +26,10 @@ img {
   height: 250px !important;
 }
 
+#root {
+  background-image: url("https://www.toptal.com/designers/subtlepatterns/uploads/light-veneer.png");
+}
+
 /* img:hover {
   transform: scale(1.5); 
 } */
