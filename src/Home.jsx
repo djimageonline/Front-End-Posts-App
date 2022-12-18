@@ -26,7 +26,6 @@ export function Home() {
     setIsBlogsShowModalVisible(false);
   };
 
-
   const handleUpdatePost = (id, params) => {
     axios
       .patch("http://localhost:3000/posts/" + id + ".json", params)

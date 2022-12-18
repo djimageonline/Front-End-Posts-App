@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Signup } from "./Signup";
 import { Login } from "./Login";
 import { PostsNew } from "./PostsNew";
+import { PostsShowPage } from "./PostsShowPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/posts/new" element={<PostsNew />} />
+          <Route path="/posts/:id" element={<PostsShowPage />} />
         </Routes>
         <Footer />
       </BrowserRouter>

@@ -5,14 +5,9 @@ import { useState } from "react";
 export function PostsNew(props) {
   const [errors, setErrors] = useState([]);
 
-  const handleSubmit = (event) => {
+  const handleCreatePost = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
-    handleCreatePost(params);
-    event.target.reset();
-  };
-
-  const handleCreatePost = (params) => {
     axios
       .post("http://localhost:3000/posts.json", params)
       .then((response) => {
@@ -27,7 +22,7 @@ export function PostsNew(props) {
   return (
     <div id="posts-new">
       <h1>New post</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleCreatePost}>
         <div>
           Title: <input name="title" className="form-control" placeholder="Title" type="text" required />
         </div>
