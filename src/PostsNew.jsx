@@ -1,11 +1,27 @@
 import "./PostsNew.css";
+import axios from "axios";
+import { useState } from "react";
 
 export function PostsNew(props) {
+  const [errors, setErrors] = useState([]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
-    props.onCreatePost(params);
+    handleCreatePost(params);
     event.target.reset();
+  };
+
+  const handleCreatePost = (params) => {
+    axios
+      .post("http://localhost:3000/posts.json", params)
+      .then((response) => {
+        window.location.href = "/";
+      })
+      .catch((error) => {
+        console.log(error.response.data.errors);
+        setErrors(error.response.data.errors);
+      });
   };
 
   return (

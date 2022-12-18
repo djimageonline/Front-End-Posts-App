@@ -1,4 +1,5 @@
 import { LogoutLink } from "./Logout";
+import { Link } from "react-router-dom";
 
 export function Header() {
   return (
@@ -23,29 +24,23 @@ export function Header() {
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav">
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="#">
-                    Home
-                  </a>
+                  <Link to="/">Home</Link>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <a className="nav-link" href="#posts-index">
                     All Posts
                   </a>
-                </li>
+                </li> */}
                 <li className="nav-item">
-                  <a className="nav-link" href="#posts-new">
+                  <Link className="nav-link" to="/posts/new">
                     New Post
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#signup">
-                    Signup
-                  </a>
+                  <Link to="/signup">Signup</Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#login">
-                    Login
-                  </a>
+                  <Link to="/login">Login</Link>
                 </li>
                 <li className="nav-item">
                   <LogoutLink />

@@ -1,11 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { PostsNew } from "./PostsNew";
 import { PostsIndex } from "./PostsIndex";
 import { Modal } from "./Modal";
 import { PostsShow } from "./PostsShow";
-import { Signup } from "./Signup";
-import { Login } from "./Login";
 import { LogoutLink } from "./Logout";
 
 export function Home() {
@@ -29,17 +26,6 @@ export function Home() {
     setIsBlogsShowModalVisible(false);
   };
 
-  const handleCreatePost = (params) => {
-    axios
-      .post("http://localhost:3000/posts.json", params)
-      .then((response) => {
-        setPosts([...posts, response.data]);
-      })
-      .catch((error) => {
-        console.log(error.response.data.errors);
-        // setErrors(error.response.data.errors);
-      });
-  };
 
   const handleUpdatePost = (id, params) => {
     axios
@@ -73,12 +59,9 @@ export function Home() {
 
   return (
     <div>
-      <Login />
       <LogoutLink />
-      <Signup />
-      <PostsNew onCreatePost={handleCreatePost} />
       <PostsIndex posts={posts} onSelectBlog={handleShowBlogs} />
-      {/* <button onClick={handleIndexPosts}> Load Posts</button> */}
+      <button onClick={handleIndexPosts}> Load Posts</button>
       <Modal show={isBlogsShowModalVisible} onClose={handleHideBlogs}>
         <PostsShow post={currentBlog} onUpdatePost={handleUpdatePost} onDestroyPost={handleDestoryPost} />
       </Modal>

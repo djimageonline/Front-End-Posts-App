@@ -28,6 +28,8 @@ img {
 
 #root {
   background-image: url("https://www.toptal.com/designers/subtlepatterns/uploads/light-veneer.png");
+  overflow: scroll;
+  height: 100vh;
 }
 
 /* img:hover {
