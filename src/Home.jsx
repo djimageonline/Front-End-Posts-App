@@ -60,7 +60,6 @@ export function Home() {
     <div>
       <LogoutLink />
       <PostsIndex posts={posts} onSelectBlog={handleShowBlogs} />
-      <button onClick={handleIndexPosts}> Load Posts</button>
       <Modal show={isBlogsShowModalVisible} onClose={handleHideBlogs}>
         <PostsShow post={currentBlog} onUpdatePost={handleUpdatePost} onDestroyPost={handleDestoryPost} />
       </Modal>

@@ -36,15 +36,20 @@ export function Header() {
                     New Post
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <Link to="/signup">Signup</Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="/login">Login</Link>
-                </li>
-                <li className="nav-item">
-                  <LogoutLink />
-                </li>
+                {localStorage.jwt === undefined ? (
+                  <>
+                    <li className="nav-item">
+                      <Link to="/signup">Signup</Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link to="/login">Login</Link>
+                    </li>
+                  </>
+                ) : (
+                  <li className="nav-item">
+                    <LogoutLink />
+                  </li>
+                )}
               </ul>
             </div>
           </div>
